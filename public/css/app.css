@@ -5,6 +5,7 @@ header h1{
 
 body {
     max-width: 970px !important;
+    padding: 20px;
 }
 .cart div{
   padding: 20px 50px 20px 60px;
@@ -32,6 +33,9 @@ body {
 
 .row {
     padding-bottom: 50px;
+    max-width: 400px;
+    max-height: 1000px;
+    margin: 0 auto;
 }
 
 .description {
@@ -48,8 +52,8 @@ body {
 .product {
   margin-top: 30px;
   margin-left: 20px;
-  max-height:300px;
-  max-width:100%;
+  max-height: 300px;
+  max-width: 100%;
 }
 .figure {
 

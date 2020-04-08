@@ -110,7 +110,7 @@ export default {
         }
     },
     created: function() {	
-        axios.get('static/products.json')
+        axios.get('products.json')
             .then((response) =>{
             this.products=response.data.products;
             console.log(this.products);
