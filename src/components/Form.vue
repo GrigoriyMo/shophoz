@@ -147,4 +147,8 @@ export default {
 };
 </script>
 <style scoped>
+
+.row {
+  max-width: 800px;
+}
 </style>

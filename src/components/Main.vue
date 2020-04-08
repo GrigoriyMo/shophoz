@@ -2,7 +2,7 @@
     <div>
         <my-header :cartItemCount="cartItemCount"></my-header>
         <main>
-            <div v-for="product in sortedProducts" :key="product">
+            <div v-for="product in sortedProducts" :key="product.id">
                 <div class="row">
                     <div class="col">
                         <figure>
@@ -10,7 +10,11 @@
                         </figure>
                     </div>
                     <div class="col col-expand">	
-                        <h1 v-text="product.title"></h1>	
+                        <router-link
+                            tag="h1"
+                            :to="{ name : 'Id', params: {id:product.id} }"
+                            >{{product.title}}
+                        </router-link>	
                         <p v-text="product.description"></p>	
                         <p class="price">
                             {{ product.price | formatPrice }}

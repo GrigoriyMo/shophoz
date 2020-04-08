@@ -1,17 +1,17 @@
 <template>
     <header>
         <div class="navbar navbar-default"> 
-            <h1> <router-link :to="{name: 'iMain'}">
-                {{ sitename }}
-                </router-link>
-            </h1>
+            <div class="navbar-header">
+                <h1> <router-link :to="{name: 'iMain'}">
+                    {{ sitename }}
+                    </router-link>
+                </h1>
+            </div>
         </div>
         <div class="nav navbar-nav navbar-right cart" >
-            <button type="button"
-            class="btn btn-default btn-lg"
-            v-on:click="showCheckOut">
-            <div class="cart"> {{ cartItemCount }} товаров в корзине </div> Оформить
-            </button>
+            <router-link active-class="active" tag="button" class="btn btn-default btn-lg" :to="{name: 'Form'}">    
+                <div class="cart"> {{ cartItemCount }} товаров в корзине </div> Оформить
+            </router-link>
         </div>
     </header>
 </template>
@@ -35,5 +35,9 @@ export default {
     a {
         text-decoration: none;
         color: black;
+    }
+
+    .router-link-exact-active{
+        color: blue;
     }
 </style>
