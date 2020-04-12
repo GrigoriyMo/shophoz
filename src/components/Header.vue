@@ -9,7 +9,10 @@
             </div>
         </div>
         <div class="nav navbar-nav navbar-right cart" >
-            <router-link active-class="active" tag="button" class="btn btn-default btn-lg" :to="{name: 'Form'}">    
+            <router-link active-class="active" 
+            tag="button" 
+            class="btn btn-default btn-lg" 
+            :to="{name: 'Form'}">    
                 <div class="cart"> {{ cartItemCount }} товаров в корзине </div> Оформить
             </router-link>
         </div>

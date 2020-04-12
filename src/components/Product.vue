@@ -12,6 +12,8 @@
         <h1>{{product.title}}</h1>
         <p v-html="product.description"></p>
         <p class="price">{{product.price }}</p>
+        <button @click="edit">Edit Product</button>
+        <router-view></router-view> 		
       </div>
     </div>
   </div>
@@ -32,8 +34,13 @@ export default {
         data => data.id == this.$route.params.id
       )[0];
     });
-  }
-};
+  },
+  methods:{
+    edit(){
+        this.$router.push( {name: 'Edit'} )
+        }
+    }
+}
 </script>
 <style scoped>
 .float-none {
