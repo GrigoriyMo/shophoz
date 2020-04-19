@@ -4,14 +4,21 @@ header h1{
 }
 
 body {
-    max-width: 970px !important;
-    padding: 20px;
+  margin: 0 auto;
+  font-family: Arial;
+  overflow-x: hidden;
+  min-width: 320px;
+  background-color: #ffffcc;
+  
 }
-.cart div{
-  padding: 20px 50px 20px 60px;
-  background-image: url(../images/cart.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+
+a{
+  color:black;
+  text-decoration: none;
+}
+
+a:visited{
+  color: black;
 }
 
 .boxes {
@@ -32,17 +39,16 @@ body {
 }
 
 .row {
-    padding-bottom: 50px;
-    max-width: 400px;
-    max-height: 1000px;
-    margin: 0 auto;
+    max-width: 245px;
+    max-height: 375px;
+    margin: 25px;
+
 }
 
-.description {
-  font-size: 150%;
-  margin-top:50px;
+ul{
+  list-style-type: none;
+  padding-left: 0px;
 }
-
 .inventory-message {
   margin-left: 20px;
   font-weight: bold;
@@ -79,8 +85,17 @@ body {
     height: 100%;
 }
 
+.m-main{
+  padding: 0 3%;
+}
+.side-bar-container{
+  flex-basis: 100px;
+  background-color: white;
+  padding-left: 20px;
+}
+
 @media (min-width: 1200px) {
     .container{
-        max-width: 970px;
+        max-width: ;
     }
 }
