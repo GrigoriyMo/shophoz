@@ -47,8 +47,6 @@ export default {
     };
   },
   props: {
-    cartItemCount: Number,
-    cartPrice: Number,
     cartContent: Array
   },
   beforeCreate() {
@@ -73,7 +71,6 @@ export default {
           console.log("error:" + error);
         });
     },
-
     signOut() {
       firebase
         .auth()
@@ -110,6 +107,12 @@ export default {
   computed: {
     mySession() {
       return this.$store.getters.session;
+    },
+    cartItemCount(){
+      return this.$store.getters.cartItemCount;
+    },
+    cartPrice(){
+      return this.$store.getters.cartPrice;
     }
   }
 };

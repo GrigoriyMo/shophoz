@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my-header :cartItemCount="cartItemCount" :cartPrice="cartPrice" :cartContent="cart"></my-header>
+    <my-header :cartContent="cart"></my-header>
     <search-tab></search-tab>
      <div class="m-main">
         <navigation-tab></navigation-tab>
@@ -58,18 +58,7 @@ export default {
             count = count + this.cart[i].piece;
         }
         return count;
-    },
-    cartPrice() {
-      if (this.cart.length) {
-          var sum = 0;
-        for(var i=0;i<this.cart.length;i++){
-            sum = sum + (this.cart[i].price*this.cart[i].piece);
-        }
-        return sum;
-      } else {
-        return 0;
-      }
-    },
+    }
   },
   watch: {}
 };

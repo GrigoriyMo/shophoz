@@ -64,29 +64,7 @@ export default {
       return myProduct.rating - n >= 0;
     },
     addToCart(aProduct) {
-      var newproduct = true;
-        for(var i = 0; i < this.cart.length; i++){
-          if(this.cart[i]){
-              if(this.cart[i].price === aProduct.price){
-                //increment already existing prdcxtr qty
-                console.log('//increment already existing prdcxtr qty')
-                this.cart[i].piece = this.cart[i].piece + 1;
-                newproduct = false;
-                break;
-              }
-            }
-        }
-        if(newproduct){
-          //add new proudct in cart
-          console.log('    //add new proudct in cart')
-          this.cart.push({ 
-            id: aProduct.id, 
-            piece: 1, 
-            price: aProduct.price,
-            myindex: (this.cart.length)
-          });
-        }
-      this.$emit('cartupdate', this.cart)
+      this.$store.dispatch('addToCart', aProduct);
     },
     canAddtoCart(aProduct) {
       //return this.product.availableInventory > this.cartItemCount;
@@ -132,9 +110,11 @@ export default {
           if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
           return 0;
         }
-        
         return this.selectCategoryProductsById(productsArray.sort(compare), this.category_id);
       }
+    },
+    getCart(){
+      return this.$store.getters.cart;
     }
   },
   filters: {
