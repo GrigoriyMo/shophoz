@@ -1,54 +1,44 @@
 <template>
   <div>
-     <div class="m-main">
-        <div class="listing-group" >
-            <side-bar @categorychange="onCategoryChange($event)" ></side-bar>
-            <listing @cartupdate="onCartUpdate($event)" :category_id="cat_id"></listing>
-        </div>
-     </div>
+    <div class="listing-group">
+      <side-bar></side-bar>
+      <listing></listing>
+    </div>
   </div>
 </template>
 <script>
 import Listing from "./Listing.vue";
-import SideBar from "./SideBar.vue";
 import { mapGetters } from "vuex";
+import SideBar from "./SideBar.vue";
+
 export default {
   name: "imain",
   data() {
     return {
-      cart: new Array(),
-      cat_id: this.category_id || 1
+      cart: new Array()
     };
   },
-  props:{
-      category_id: Number,
-  },
-  created: function(){
-
-  },
-  components: {    SideBar, Listing },
+  created: function() {},
+    components: { Listing,SideBar},
   methods: {
-    onCategoryChange(category_id){
-        this.cat_id = category_id;
-    },
-    onCartUpdate(cart){
-        this.cart = cart;
+    onCartUpdate(cart) {
+      this.cart = cart;
     },
     showCheckOut() {
       this.showProduct = this.showProduct ? false : true;
     },
     submitForm() {
       alert("Submitted");
-    },
+    }
   },
   computed: {
     ...mapGetters(["session"]),
     cartItemCount() {
-        var count=null;
-        for(var i = 0; i < this.cart.length;i++){
-            count = count + this.cart[i].piece;
-        }
-        return count;
+      var count = null;
+      for (var i = 0; i < this.cart.length; i++) {
+        count = count + this.cart[i].piece;
+      }
+      return count;
     }
   },
   watch: {}
@@ -59,13 +49,6 @@ export default {
   animation: shake 0.72s cubic-bezier(0.37, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-}
-
-.listing-group{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height: auto;
 }
 
 @keyframes shake {

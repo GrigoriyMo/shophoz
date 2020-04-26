@@ -48,7 +48,7 @@ export default {
   },
   methods:{
     switchCategory(id){
-      this.$emit('categorychange', id)
+      this.$store.dispatch('switchCategory',id);
     }
   }
 };

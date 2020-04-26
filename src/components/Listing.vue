@@ -55,10 +55,9 @@ export default {
     return {
       products: new Array(),
       cart: new Array(),
-      buttoncart:"url(images/korzinka.png)"
+      buttoncart:"url(images/korzinka.png)",
     };
   },
-  props: ["category_id"],
   methods: {
     checkRating(n, myProduct) {
       return myProduct.rating - n >= 0;
@@ -110,12 +109,14 @@ export default {
           if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
           return 0;
         }
-        
-        return this.selectCategoryProductsById(productsArray.sort(compare), this.category_id);
+        return this.selectCategoryProductsById(productsArray.sort(compare), this.getCategoryId);
       }
     },
     getCart(){
       return this.$store.getters.cart;
+    },
+    getCategoryId(){
+      return this.$store.getters.categoryId;
     }
   },
   filters: {

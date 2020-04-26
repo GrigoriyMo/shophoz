@@ -6,19 +6,17 @@
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
-        <page-footer></page-footer>
-
+    <page-footer></page-footer>
   </div>
 </template>
 <script>
-import MyHeader from "./components/Header.vue";
 import SearchTab from "./components/SearchTab.vue";
-import NavigationTab from "./components/NavigationTab.vue";
+import MyHeader from "./components/Header.vue";
 import PageFooter from "./components/Footer.vue";
-
+import NavigationTab from "./components/NavigationTab.vue";
 export default {
   name: "App",
-  components: { MyHeader, PageFooter, SearchTab, NavigationTab }
+   components: { MyHeader,NavigationTab, PageFooter, SearchTab },
 };
 </script>
 <style>

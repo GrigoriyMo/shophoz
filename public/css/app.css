@@ -94,6 +94,13 @@ ul{
   padding-left: 20px;
 }
 
+.listing-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: auto;
+}
+
 @media (min-width: 1200px) {
     .container{
         max-width: ;
