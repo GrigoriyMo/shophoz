@@ -1,5 +1,6 @@
 <template>
   <div>
+    <side-bar></side-bar>
     <div class="m-main">
       <div class="cart-detailed">
         <div class="cart-rows">
@@ -39,9 +40,10 @@
 </template>
 <script>
 //import axios from "axios";
-
+import SideBar from "./SideBar.vue";
 export default {
   name: "Cart",
+  components:{ SideBar } ,
   data() {
     return {
       recyclePic: 'url(images/recycle.png)',

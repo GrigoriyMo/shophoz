@@ -1,5 +1,6 @@
 const state= {
-    category_id: 1
+    category_id: 1,
+    fromListing: false
 }
 const getters ={
     categoryId(){

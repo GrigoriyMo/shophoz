@@ -10,7 +10,6 @@
 import Listing from "./Listing.vue";
 import { mapGetters } from "vuex";
 import SideBar from "./SideBar.vue";
-
 export default {
   name: "imain",
   data() {
