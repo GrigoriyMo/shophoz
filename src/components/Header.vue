@@ -18,10 +18,10 @@
       <div class="saved-products header-div" v-bind:style="{ backgroundImage: savedProductsPic}">
         <span>{{savedProducts }} <span class="circle-count"> {{ savedProductsCount }} </span> </span>
       </div>
-      <router-link active-class="active" tag="div" class="cart" :to="{name: 'Cart', params:{ cartItemCount:cartItemCount,cartPrice:cartPrice, cartContent:cartContent} }">
+      <router-link active-class="active" tag="div" class="cart" :to="{name: 'Cart'}">
         <span>{{ cartTitle }} <span class="circle-count">{{ cartItemCount || 0}} </span> {{ cartPrice|formatPrice }}</span>
       </router-link>
-      <router-link active-class="active" tag="div" class="place-order" :to="{name: 'Cart', params:{ cartItemCount:cartItemCount,cartPrice:cartPrice, cartContent:cartContent} }">
+      <router-link active-class="active" tag="div" class="place-order" :to="{name: 'Cart'}">
         <span>{{ placeOrder }}</span>
       </router-link>
     </div>
@@ -47,7 +47,6 @@ export default {
     };
   },
   props: {
-    cartContent: Array
   },
   beforeCreate() {
     firebase.auth().onAuthStateChanged(user => {

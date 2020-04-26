@@ -1,23 +1,15 @@
 <template>
   <div>
-    <my-header :cartContent="cart"></my-header>
-    <search-tab></search-tab>
      <div class="m-main">
-        <navigation-tab></navigation-tab>
         <div class="listing-group" >
             <side-bar @categorychange="onCategoryChange($event)" ></side-bar>
             <listing @cartupdate="onCartUpdate($event)" :category_id="cat_id"></listing>
         </div>
      </div>
-    <page-footer></page-footer>
   </div>
 </template>
 <script>
-import MyHeader from "./Header.vue";
-import SearchTab from "./SearchTab.vue";
-import NavigationTab from "./NavigationTab.vue";
 import Listing from "./Listing.vue";
-import PageFooter from "./Footer.vue";
 import SideBar from "./SideBar.vue";
 import { mapGetters } from "vuex";
 export default {
@@ -25,7 +17,6 @@ export default {
   data() {
     return {
       cart: new Array(),
-      products: new Array(),
       cat_id: this.category_id || 1
     };
   },
@@ -35,7 +26,7 @@ export default {
   created: function(){
 
   },
-  components: { MyHeader, SearchTab, NavigationTab, PageFooter, SideBar, Listing },
+  components: {    SideBar, Listing },
   methods: {
     onCategoryChange(category_id){
         this.cat_id = category_id;

@@ -64,7 +64,7 @@ export default {
       return myProduct.rating - n >= 0;
     },
     addToCart(aProduct) {
-      this.$store.dispatch('addToCart', aProduct);
+      this.$store.dispatch('addToCart',aProduct);
     },
     canAddtoCart(aProduct) {
       //return this.product.availableInventory > this.cartItemCount;
@@ -110,6 +110,7 @@ export default {
           if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
           return 0;
         }
+        
         return this.selectCategoryProductsById(productsArray.sort(compare), this.category_id);
       }
     },

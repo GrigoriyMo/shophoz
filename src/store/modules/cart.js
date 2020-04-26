@@ -48,7 +48,9 @@ const mutations = {
             id: aProduct.id, 
             piece: 1, 
             price: aProduct.price,
-            myindex: (state.cart.length)
+            myindex: (state.cart.length),
+            description: aProduct.description,
+            image: aProduct.image
           });
         }
     }

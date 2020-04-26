@@ -1,17 +1,13 @@
 <template>
   <div>
-    <my-header :cartItemCount="cartItemCount" :cartPrice="cartPrice"></my-header>
-    <search-tab></search-tab>
-    <navigation-tab></navigation-tab>
     <div class="m-main">
       <div class="cart-detailed">
-        <side-bar ></side-bar>
         <div class="cart-rows">
           <div class="cart-header-one">
             <h1>{{ CartTitle }}</h1>
           </div>
           <ul class="ul-cart">
-            <li v-for="(product) in clearedRenderCartData" :key="product.key">
+            <li v-for="(product) in getCart" :key="product.key">
               <div class="cart-row">
                 <div class="title-and-photo">
                   <div class="cart-title">{{ product.title }}</div> 
@@ -39,20 +35,13 @@
         </div>
       </div>
     </div>
-    <page-footer></page-footer>
   </div>
 </template>
 <script>
-import MyHeader from "./Header.vue";
-import SideBar from "./SideBar.vue";
-import SearchTab from "./SearchTab.vue";
-import NavigationTab from "./NavigationTab.vue";
-import PageFooter from "./Footer.vue";
-import axios from "axios";
+//import axios from "axios";
 
 export default {
   name: "Cart",
-  components: { MyHeader, SideBar, SearchTab, NavigationTab, PageFooter },
   data() {
     return {
       recyclePic: 'url(images/recycle.png)',
@@ -90,14 +79,11 @@ export default {
     }
   },
   created: function() {
-    axios.get("/products.json").then(response => {
-      this.products = response.data.products;
-      for (var c = 0; c < this.cartContent.length; c++) {
-        this.clearedRenderCartData.push(
-          this.selectProductDataById(this.cartContent[c])
-        );
-      }
-    });
+  },
+  computed:{
+    getCart(){
+      return this.$store.getters.cart;
+    }
   },
   methods: {
     deleteProductFromCart:function(index){
@@ -109,17 +95,6 @@ export default {
             }
         }
         return;
-    },
-    selectProductDataById: function(productId) {
-      var result;
-      for (var i = 0; i < this.products.length; i++) {
-        if (this.products[i].price === productId.price) {
-          result = this.products[i];
-          result.piece = productId.piece;
-          result.myindex = productId.myindex;
-        }
-      }
-      return result;
     }
   }
 };
